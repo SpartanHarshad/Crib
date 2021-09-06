@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">CountSmsApp</string>
+    <string name="txt_title">Count Messages</string>
+    <string name="hint_mobile_no">Please enter mobile number</string>
+    <string name="hint_days">Please enter no of days</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btn_sms_cnt">show message count</string>
 </resources>

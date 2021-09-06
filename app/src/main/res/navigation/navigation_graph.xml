@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/userInputFragment">
+
+    <fragment
+        android:id="@+id/userInputFragment"
+        android:name="com.harshad.countsmsapp.fragments.UserInputFragment"
+        android:label="fragment_user_input"
+        tools:layout="@layout/fragment_user_input">
+        <action
+            android:id="@+id/action_userInputFragment_to_showMsgCountFragment"
+            app:destination="@id/showMsgCountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/showMsgCountFragment"
+        android:name="com.harshad.countsmsapp.fragments.ShowMsgCountFragment"
+        android:label="fragment_show_msg_count"
+        tools:layout="@layout/fragment_show_msg_count">
+        <action
+            android:id="@+id/action_showMsgCountFragment_to_userInputFragment"
+            app:destination="@id/userInputFragment" />
+        <argument
+            android:name="userData"
+            android:defaultValue="@null"
+            app:argType="com.harshad.countsmsapp.model.UserData"
+            app:nullable="true" />
+    </fragment>
+</navigation>
