@@ -11,6 +11,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.harshad.countsmsapp.R
 import kotlinx.android.synthetic.main.fragment_show_msg_count.*
@@ -44,6 +46,13 @@ class ShowMsgCountFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         tvSmsCnt.text = "Your $days days message count is $smsCount"
+        gotoInputScreen()
+    }
+
+    private fun gotoInputScreen() {
+        btnBack.setOnClickListener {
+            findNavController().navigate(ShowMsgCountFragmentDirections.actionShowMsgCountFragmentToUserInputFragment())
+        }
     }
 
     private fun getMsg(mobileNo: String, days: String, context: Context): Int {
@@ -58,13 +67,14 @@ class ShowMsgCountFragment : Fragment() {
                 " address='$mobileNo'",
                 null,
                 "date desc")
-            if (cur != null) {
+            if (cur != null && cur.count > 0) {
                 cur.moveToFirst()
                 do {
                     var smgDate = cur.getString(cur.getColumnIndexOrThrow(Telephony.Sms.DATE))
                     if (smgDate.toLong() > date.toLong()) {
                         totalSmsCnt++
                     }
+                    Log.d("TAG", "date $smgDate user date $date cont $totalSmsCnt")
                 } while (cur.moveToNext())
                 if (!cur.isClosed()) {
                     cur.close();
@@ -79,4 +89,5 @@ class ShowMsgCountFragment : Fragment() {
         }
     }
 }
+
 
