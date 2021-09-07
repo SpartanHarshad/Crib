@@ -17,7 +17,6 @@ class UserInputFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_user_input, container, false)
     }
 
@@ -31,7 +30,7 @@ class UserInputFragment : Fragment() {
             if (isDataValidate()) {
                 var mobileNum = etvMobileNumber.text.toString()
                 var day = etvNumbersOfDays.text.toString()
-                val uData = UserData(mobileNum, day)
+                val uData = UserData("+91" + mobileNum, day)
                 val action =
                     UserInputFragmentDirections.actionUserInputFragmentToShowMsgCountFragment(uData)
                 view.findNavController().navigate(action)

@@ -7,21 +7,12 @@
     android:layout_margin="@dimen/dp_10"
     tools:context=".fragments.ShowMsgCountFragment">
 
-    <com.google.android.material.progressindicator.CircularProgressIndicator
-        android:id="@+id/pgBar"
-        android:layout_width="@dimen/dp_40"
-        android:layout_height="@dimen/dp_40"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvSmsCnt"
-        android:layout_width="@dimen/dp_40"
+        android:layout_width="wrap_content"
         android:layout_height="@dimen/dp_40"
-        android:visibility="invisible"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_15"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
